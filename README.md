@@ -5,3 +5,4 @@ Commits Detail:
 3. Intall Laravel Breeze : Install this package to make user and their relation b/w comments ie. A user can create multiple comments.
 4. Setup Views : Set the views ; after login comments section shows;
 5. Create Comment Model,Migration,Factory; Also Make Relation between users and comments.
+6. Get Comment from database and show to view.

@@ -7,15 +7,7 @@ use Livewire\Component;
 
 class Comment extends Component
 {
-    public $comments =[
-            [
-            'user_name' => 'WaqasHaidar',
-            'body' => 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste atque praesentium
-            necessitatibus quis dicta cumque consequatur. Quae voluptate error delectus aliquam
-             perspiciatis assumenda eligendi velit. Optio, quidem. Quibusdam, perferendis? At.',
-            'created_at' => '3 min ago'
-            ]
-    ];
+    public $comments ;
     public $commentBody;
 
     public function addComment()
@@ -30,6 +22,12 @@ class Comment extends Component
         ]);
         $this->commentBody="";
        
+    }
+
+    public function mount($allComment)
+    {
+        //Mount Starts work as soon as complonents loads.
+        $this->comments =$allComment;
     }
     public function render()
     {

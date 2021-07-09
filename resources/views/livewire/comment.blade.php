@@ -11,8 +11,8 @@
     </form>
     @foreach ($comments as $comment)
     <div class="border border-secondary border-2 rounded p-3 my-3">
-        <h6>{{$comment['user_name']}} <span class="badge bg-secondary">{{$comment['created_at']}}</span></h6>
-        <p>{{$comment['body']}}</p>
+        <h6>{{$comment->users->name}} <span class="badge bg-secondary">{{$comment->created_at->diffForHumans()}}</span></h6>
+        <p>{{$comment->body}}</p>
     </div>
     @endforeach
 </div>
