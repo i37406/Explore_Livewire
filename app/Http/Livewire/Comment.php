@@ -20,6 +20,9 @@ class Comment extends Component
 
     public function addComment()
     {
+        if ($this->commentBody ==""){
+            return;
+        }
         array_unshift($this->comments,[
             'user_name' => 'Ali Raza',
             'body' => $this->commentBody,
