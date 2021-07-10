@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use Carbon\Carbon;
 use Livewire\Component;
 use App\Models\CommentModel;
+use Illuminate\Support\Facades\Auth;
 
 class Comment extends Component
 {
@@ -16,11 +17,9 @@ class Comment extends Component
         if ($this->commentBody ==""){
             return;
         }
-        array_unshift($this->comments,[
-            'user_name' => 'Ali Raza',
-            'body' => $this->commentBody,
-            'created_at' => Carbon::now()->diffForHumans()
-        ]);
+
+        $newComment = CommentModel::create(['body' => $this->commentBody, 'user_id' => Auth::user()->id]);
+        $this->comments->prepend($newComment); //use prepend to show at the first of Scomments[0]
         $this->commentBody="";
        
     }
@@ -28,7 +27,7 @@ class Comment extends Component
     public function mount()
     {
         //Mount Starts work as soon as complonents loads.
-        $allComment = CommentModel::all();
+        $allComment = CommentModel::latest()->get();
         $this->comments =$allComment;
     }
     public function render()

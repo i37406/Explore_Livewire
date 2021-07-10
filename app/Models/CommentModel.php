@@ -10,6 +10,7 @@ class CommentModel extends Model
 {
     use HasFactory;
 
+    protected $guarded = []; //Allow Mass Assignment
     public function users()
     {
         return $this->belongsTo(User::class, 'user_id');
