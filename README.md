@@ -6,3 +6,4 @@ Commits Detail:
 4. Setup Views : Set the views ; after login comments section shows;
 5. Create Comment Model,Migration,Factory; Also Make Relation between users and comments.
 6. Get Comment from database and show to view.
+7. Change Model name "Comment" to "CommentModel" because our component and model having same name make some issues.
